@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased overflow-x-hidden;
+  }
+}
+
+/* Fallback base styles for clean transitions if needed */
+.glass {
+  @apply bg-white/80 backdrop-blur-md border border-slate-200 shadow-sm;
+}
