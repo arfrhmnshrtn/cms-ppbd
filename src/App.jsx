@@ -5,9 +5,11 @@ import Admins from './pages/Admins';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
 import Users from './pages/siswa_pendaftar/Users';
-import ValidasiBerkas from './pages/ValidasiBerkas';
+import ValidasiBerkas from './pages/validasi_berkas/ValidasiBerkas';
 import RaporScore from './pages/rapor/RaporScore';
 import InputRapor from './pages/rapor/InputRapor';
+import NilaiUjian from './pages/nilai_ujian/NilaiUjian';
+import ProsesValidasiBerkas from './pages/validasi_berkas/ProsesValidasiBerkas';
 
 // ProtectedRoute component to handle authentication state
 const ProtectedRoute = ({ children }) => {
@@ -51,9 +53,11 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="/:jurusan" element={<Users />} />
           <Route path="validasi-berkas" element={<ValidasiBerkas />} />
+          <Route path="validasi-berkas/proses/:id" element={<ProsesValidasiBerkas />} />
           <Route path="admins" element={<Admins />} />
           <Route path="rapor-score" element={<RaporScore />} />
           <Route path="rapor-score/input/:id" element={<InputRapor />} />
+          <Route path="nilai-ujian" element={<NilaiUjian />} />
           <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>

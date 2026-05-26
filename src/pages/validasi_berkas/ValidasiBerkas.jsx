@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Search, Filter, FileClock, FileWarning, FileCheck, AlertCircle } from 'lucide-react';
 
 const trackMap = {
@@ -40,6 +41,7 @@ const getFileUrl = (path) => {
 };
 
 export default function ValidasiBerkas() {
+    const navigate = useNavigate();
     const [applicants, setApplicants] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
@@ -58,7 +60,7 @@ export default function ValidasiBerkas() {
                 }
             });
             const resData = await response.json();
-            console.log(resData);
+            // console.log(resData);
             setApplicants(resData.data || []);
         } catch (error) {
             console.error('Error fetching berkas:', error);
@@ -209,7 +211,7 @@ export default function ValidasiBerkas() {
                                                 </td>
                                                 <td className="p-4 pr-6 text-right">{getStatusBadge(overallStatus)}</td>
                                                 <td className="p-4 text-right">
-                                                    <button className="px-3 py-1 bg-brand text-white text-sm rounded transition-colors inline-flex">Periksa</button>
+                                                    <button onClick={() => navigate(`/validasi-berkas/proses/${a.id}`)} className="px-3 py-1 bg-brand text-white text-sm rounded transition-colors inline-flex">Periksa</button>
                                                 </td>
                                             </tr>
                                         );

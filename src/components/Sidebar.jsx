@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Users, Settings, LogOut, Code, ChevronDown, ChevronUp, Box, User, Shield, Calendar, FileText } from 'lucide-react';
+import { LayoutDashboard, Users, Settings, LogOut, Code, ChevronDown, ChevronUp, Box, User, Shield, Calendar, FileText, BookOpen } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 export default function Sidebar({ isOpen }) {
   const [isUsersOpen, setIsUsersOpen] = useState(false);
   const [isRaporOpen, setIsRaporOpen] = useState(false);
+  const [isNilaiUjianOpen, setIsNilaiUjianOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -81,7 +82,7 @@ export default function Sidebar({ isOpen }) {
                 <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Jurusan ATP</span>
               </NavLink>
               <NavLink
-                to="/akuntansi"
+                to="/ak"
                 className={({ isActive }) =>
                   `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand font-semibold' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
                   } ${!isOpen && 'justify-center'}`
@@ -156,6 +157,53 @@ export default function Sidebar({ isOpen }) {
                 }
               >
                 <User size={18} className="flex-shrink-0" />
+                <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Belum di input</span>
+              </NavLink>
+            </div>
+          )}
+        </div>
+
+        <div>
+          <button
+            className={`w-full flex items-center px-4 py-3 rounded-lg font-medium transition-colors text-slate-500 hover:bg-slate-50 hover:text-slate-900 ${!isOpen ? 'justify-center' : 'justify-between'
+              }`}
+            onClick={() => setIsNilaiUjianOpen(!isNilaiUjianOpen)}
+          >
+            <div className="flex items-center gap-3 overflow-hidden">
+              <BookOpen size={20} className="flex-shrink-0" />
+              <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Nilai Ujian</span>
+            </div>
+            {isOpen && (
+              <div className="flex-shrink-0">
+                {isNilaiUjianOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              </div>
+            )}
+          </button>
+
+          {isNilaiUjianOpen && (
+            <div className={`flex flex-col gap-1 mt-1 overflow-hidden transition-all duration-300 ${isOpen ? 'pl-11' : 'pl-0 items-center'}`}>
+              <NavLink
+                to="/nilai-ujian?status=sudah"
+                className={
+                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${location.pathname === '/nilai-ujian' && location.search === '?status=sudah'
+                    ? 'text-brand font-semibold'
+                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  } ${!isOpen && 'justify-center'}`
+                }
+              >
+                <FileText size={18} className="flex-shrink-0" />
+                <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Sudah di input</span>
+              </NavLink>
+              <NavLink
+                to="/nilai-ujian?status=belum"
+                className={
+                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${location.pathname === '/nilai-ujian' && location.search === '?status=belum'
+                    ? 'text-brand font-semibold'
+                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  } ${!isOpen && 'justify-center'}`
+                }
+              >
+                <FileText size={18} className="flex-shrink-0" />
                 <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Belum di input</span>
               </NavLink>
             </div>

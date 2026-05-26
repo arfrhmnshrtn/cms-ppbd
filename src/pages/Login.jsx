@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Code, GraduationCap } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 export default function Login() {
   const [email, setEmail] = useState('admin1@gmail.com');
@@ -54,7 +55,7 @@ export default function Login() {
       <div className="max-w-md w-full glass p-8 rounded-2xl shadow-lg">
         <div className="flex flex-col items-center mb-8">
           <div className="w-16 h-16 bg-brand/10 text-brand rounded-full flex items-center justify-center mb-4">
-            <GraduationCap size={32} />
+            <img src={logo} alt="logo" />
           </div>
           <h1 className="text-2xl font-bold text-slate-900">PORTAL ADMIN SPMB</h1>
           <p className="text-slate-500 mt-2 text-center text-sm">SMKN 1 Simpang Pematang</p>
