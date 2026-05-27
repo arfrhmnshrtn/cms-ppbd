@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Search, Users as UsersIcon, FileCheck, FileClock, Eye, AlertCircle, FileWarning } from 'lucide-react';
 import { useParams } from 'react-router-dom';
+import NotFound from '../NotFound';
 
 const getStatusBadge = (status) => {
     const isApproved = status === 'TERVERIFIKASI' || status === 'Terverifikasi';
@@ -24,6 +25,12 @@ export default function Users() {
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const { jurusan } = useParams();
+
+    const validJurusans = ['tkj', 'tkr', 'atp', 'ak', 'dkv'];
+    
+    // Check for valid parameter before hooks? Wait, hooks must be called unconditionally.
+    // So we just return NotFound below hooks if invalid.
+    const isValidJurusan = jurusan && validJurusans.includes(jurusan.toLowerCase());
 
     const fetchUsers = useCallback(async () => {
         if (!jurusan) return;
@@ -81,7 +88,9 @@ export default function Users() {
         });
     }, [users, searchTerm]);
 
-    return (
+    return !isValidJurusan ? (
+        <NotFound />
+    ) : (
         <div className="animate-in fade-in slide-in-from-bottom-2 duration-500">
             {/* Header */}
             <div className="flex justify-between items-end mb-8">

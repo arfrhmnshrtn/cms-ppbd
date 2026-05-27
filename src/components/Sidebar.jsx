@@ -231,7 +231,7 @@ export default function Sidebar({ isOpen }) {
           {isPengaturanJadwalOpen && (
             <div className={`flex flex-col gap-1 mt-1 overflow-hidden transition-all duration-300 ${isOpen ? 'pl-11' : 'pl-0 items-center'}`}>
               <NavLink
-                to="/jadwal-test"
+                to="/jadwal-ujian"
                 className={({ isActive }) =>
                   `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand font-semibold' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
                   } ${!isOpen && 'justify-center'}`
@@ -241,7 +241,7 @@ export default function Sidebar({ isOpen }) {
                 <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Jadwal Ujian</span>
               </NavLink>
               <NavLink
-                to="/jadwal-ujian"
+                to="/jadwal-kelulusan"
                 className={({ isActive }) =>
                   `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand font-semibold' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
                   } ${!isOpen && 'justify-center'}`
@@ -269,7 +269,7 @@ export default function Sidebar({ isOpen }) {
 
       <div className="mt-auto">
         <button
-          className={`w-full flex items-center px-4 py-3 rounded-lg font-medium transition-colors text-red-500 hover:bg-red-50 hover:text-red-600 gap-3 ${!isOpen && 'justify-center'}`}
+          className={`w-full flex items-center px-4 py-3 rounded-lg bg-red-500 font-medium transition-colors text-white hover:bg-red-700 hover:text-white gap-3 ${!isOpen && 'justify-center'}`}
           onClick={() => {
             localStorage.removeItem('tokenAdmin');
             navigate('/login');

@@ -10,8 +10,10 @@ import RaporScore from './pages/rapor/RaporScore';
 import InputRapor from './pages/rapor/InputRapor';
 import NilaiUjian from './pages/nilai_ujian/NilaiUjian';
 import ProsesValidasiBerkas from './pages/validasi_berkas/ProsesValidasiBerkas';
+import JadwalKelulusan from './pages/jadwal_kelulusan/JadwalKelulusan';
+import TambahJadwal from './pages/jadwal_kelulusan/TambahJadwal';
 import JadwalUjian from './pages/jadwal_ujian/JadwalUjian';
-import TambahJadwal from './pages/jadwal_ujian/TambahJadwal';
+import NotFound from './pages/NotFound';
 
 // ProtectedRoute component to handle authentication state
 const ProtectedRoute = ({ children }) => {
@@ -60,9 +62,11 @@ function App() {
           <Route path="rapor-score" element={<RaporScore />} />
           <Route path="rapor-score/input/:id" element={<InputRapor />} />
           <Route path="nilai-ujian" element={<NilaiUjian />} />
+          <Route path="jadwal-kelulusan" element={<JadwalKelulusan />} />
+          <Route path="jadwal-kelulusan/tambah" element={<TambahJadwal />} />
           <Route path="jadwal-ujian" element={<JadwalUjian />} />
-          <Route path="jadwal-ujian/tambah" element={<TambahJadwal />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
