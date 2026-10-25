@@ -95,45 +95,45 @@ export default function Users() {
             {/* Header */}
             <div className="flex justify-between items-end mb-8">
                 <div>
-                    <h1 className="text-[28px] font-extrabold text-text-main mb-1">Manage Users {jurusan?.toUpperCase()}</h1>
+                    <h1 className="text-[28px] font-extrabold text-text-main mb-1">Kelola Pendaftar {jurusan?.toUpperCase()}</h1>
                     <p className="text-text-muted text-[14px]">Daftar calon pendaftaran siswa baru untuk kompetensi keahlian {jurusan?.toUpperCase()}.</p>
                 </div>
             </div>
 
             {/* Quick Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-bg-card p-6 rounded-[20px] shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
-                    <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center flex-shrink-0">
-                        <UsersIcon size={24} />
+                <div className="bg-brand p-6 shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
+                    <div className="w-12 h-12 rounded-xl bg-brand/10 text-white flex items-center justify-center flex-shrink-0">
+                        <UsersIcon size={70} />
                     </div>
                     <div>
-                        <span className="text-[14px] text-text-muted font-medium block">Total Pendaftar</span>
-                        <span className="text-[24px] font-extrabold text-text-main">{loading ? '...' : `${stats.total} Siswa`}</span>
+                        <span className="text-[14px] text-white font-medium block">Total Pendaftar</span>
+                        <span className="text-[24px] font-extrabold text-white">{loading ? '...' : `${stats.total} Siswa`}</span>
                     </div>
                 </div>
-                <div className="bg-bg-card p-6 rounded-[20px] shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
-                    <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 flex-shrink-0">
-                        <FileCheck size={24} />
+                <div className="bg-emerald-600 p-6 shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-white flex-shrink-0">
+                        <FileCheck size={70} />
                     </div>
                     <div>
-                        <span className="text-[14px] text-text-muted font-medium block">Berkas Terverifikasi</span>
-                        <span className="text-[24px] font-extrabold text-text-main">{loading ? '...' : `${stats.verified} Siswa`}</span>
+                        <span className="text-[14px] text-white font-medium block">Berkas Terverifikasi</span>
+                        <span className="text-[24px] font-extrabold text-white">{loading ? '...' : `${stats.verified} Siswa`}</span>
                     </div>
                 </div>
-                <div className="bg-bg-card p-6 rounded-[20px] shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
-                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 flex-shrink-0">
-                        <FileClock size={24} />
+                <div className="bg-amber-600 p-6 shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
+                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-white flex-shrink-0">
+                        <FileClock size={70} />
                     </div>
                     <div>
-                        <span className="text-[14px] text-text-muted font-medium block">Menunggu / Revisi</span>
-                        <span className="text-[24px] font-extrabold text-text-main">{loading ? '...' : `${stats.pending} Siswa`}</span>
+                        <span className="text-[14px] text-white font-medium block">Menunggu / Revisi</span>
+                        <span className="text-[24px] font-extrabold text-white">{loading ? '...' : `${stats.pending} Siswa`}</span>
                     </div>
                 </div>
             </div>
 
             {/* Filter Bar */}
-            <div className="bg-bg-card p-4 px-6 rounded-[18px] mb-6 shadow-sm border border-border">
-                <div className="flex items-center gap-3 bg-bg-soft border border-border px-4 py-2.5 rounded-xl w-full md:w-[400px] focus-within:border-primary transition-all">
+            <div className="bg-bg-card p-4 px-6 mb-6 shadow-sm border border-border">
+                <div className="flex items-center gap-3 bg-bg-soft border border-border px-4 py-2.5 w-full md:w-[400px] focus-within:border-primary transition-all">
                     <Search size={18} className="text-text-muted" />
                     <input
                         type="text"
@@ -147,12 +147,12 @@ export default function Users() {
 
             {/* Table Area */}
             {loading ? (
-                <div className="glass rounded-[20px] p-20 flex flex-col items-center justify-center border border-border">
+                <div className="glass p-20 flex flex-col items-center justify-center border border-border">
                     <AlertCircle size={40} className="animate-spin text-brand mb-4" />
                     <p className="text-text-muted text-sm font-semibold">Memuat data pendaftar...</p>
                 </div>
             ) : (
-                <div className="glass rounded-[20px] overflow-hidden border border-border">
+                <div className="glass overflow-hidden border border-border">
                     <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse cursor-default">
                             <thead className="bg-slate-50 border-b border-border">
