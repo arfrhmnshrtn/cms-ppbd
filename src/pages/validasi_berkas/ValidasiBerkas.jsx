@@ -106,42 +106,42 @@ export default function ValidasiBerkas() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-bg-card p-6 rounded-[20px] shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
-                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 flex-shrink-0"><FileClock size={24} /></div>
+                <div className="bg-yellow-500 p-6 shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
+                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-white flex-shrink-0"><FileClock size={70} /></div>
                     <div>
-                        <span className="text-[14px] text-text-muted font-medium block">Menunggu Antrean</span>
-                        <span className="text-[24px] font-extrabold text-text-main">{loading ? '...' : `${stats.pending} Siswa`}</span>
+                        <span className="text-[14px] text-white font-medium block">Menunggu Antrean</span>
+                        <span className="text-[24px] font-extrabold text-white">{loading ? '...' : `${stats.pending} Siswa`}</span>
                     </div>
                 </div>
-                <div className="bg-bg-card p-6 rounded-[20px] shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
-                    <div className="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-500 flex-shrink-0"><FileWarning size={24} /></div>
+                <div className="bg-red-600 p-6 shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0"><FileWarning size={70} /></div>
                     <div>
-                        <span className="text-[14px] text-text-muted font-medium block">Perlu Revisi</span>
-                        <span className="text-[24px] font-extrabold text-text-main">{loading ? '...' : `${stats.revision} Siswa`}</span>
+                        <span className="text-[14px] text-white font-medium block">Perlu Revisi</span>
+                        <span className="text-[24px] font-extrabold text-white">{loading ? '...' : `${stats.revision} Siswa`}</span>
                     </div>
                 </div>
-                <div className="bg-bg-card p-6 rounded-[20px] shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
-                    <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 flex-shrink-0"><FileCheck size={24} /></div>
+                <div className="bg-green-600 p-6 shadow-sm border border-border flex items-center gap-4 hover:shadow-md transition-all duration-200">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0"><FileCheck size={70} /></div>
                     <div>
-                        <span className="text-[14px] text-text-muted font-medium block">Terverifikasi</span>
-                        <span className="text-[24px] font-extrabold text-text-main">{loading ? '...' : `${stats.verified} Siswa`}</span>
+                        <span className="text-[14px] text-white font-medium block">Terverifikasi</span>
+                        <span className="text-[24px] font-extrabold text-white">{loading ? '...' : `${stats.verified} Siswa`}</span>
                     </div>
                 </div>
             </div>
 
-            <div className="bg-bg-card p-4 px-6 rounded-[18px] mb-6 shadow-sm flex flex-col md:flex-row justify-between gap-4 md:items-center border border-border">
-                <div className="flex items-center gap-3 bg-bg-soft border border-border px-4 py-2.5 rounded-xl w-full md:w-[400px] focus-within:border-primary transition-all">
+            <div className="bg-bg-card p-4 px-6 mb-6 shadow-sm flex flex-col md:flex-row justify-between gap-4 md:items-center border border-border">
+                <div className="flex items-center gap-3 bg-bg-soft border border-border px-4 py-2.5 w-full md:w-[400px] focus-within:border-primary transition-all">
                     <Search size={18} className="text-text-muted" />
                     <input type="text" placeholder="Cari nama atau nomor daftar..." className="bg-transparent border-none outline-none w-full text-[14px] text-text-main placeholder:text-text-muted/40" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
                 </div>
                 <div className="flex items-center gap-3 w-full md:w-auto justify-end">
-                    <select className="px-4 py-2.5 bg-bg-soft border border-border rounded-xl text-[14px] text-text-main outline-none cursor-pointer hover:border-primary transition-all font-bold" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+                    <select className="px-4 py-2.5 bg-bg-soft border border-border text-[14px] text-text-main outline-none cursor-pointer hover:border-primary transition-all font-bold" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
                         <option value="Semua Status">Semua Status</option>
                         <option value="Verified">Verified</option>
                         <option value="Pending">Pending</option>
                         <option value="Revision">Revision</option>
                     </select>
-                    <button className="p-2.5 bg-bg-soft border border-border rounded-xl text-text-muted hover:text-primary hover:bg-primary/5 transition-all"><Filter size={18} /></button>
+                    <button className="p-2.5 bg-bg-soft border border-border text-text-muted hover:text-primary hover:bg-primary/5 transition-all"><Filter size={18} /></button>
                 </div>
             </div>
 
@@ -151,7 +151,7 @@ export default function ValidasiBerkas() {
                     <p className="text-text-muted text-sm font-semibold">Memuat berkas calon siswa...</p>
                 </div>
             ) : (
-                <div className="glass rounded-[20px] overflow-hidden border border-border">
+                <div className="glass overflow-hidden border border-border">
                     <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse cursor-default">
                             <thead className="bg-slate-50 border-b border-border">
@@ -202,7 +202,7 @@ export default function ValidasiBerkas() {
                                                             const isRejected = doc.status === 'REVISI';
                                                             const statusColor = isApproved ? "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100" : isRejected ? "bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100" : "bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100 animate-pulse";
                                                             return (
-                                                                <span key={docKey} title={`${doc.keterangan}`} className={`w-8 h-8 rounded-full border text-[10px] font-extrabold flex items-center justify-center transition-all duration-150 ${statusColor} hover:scale-110 shadow-sm`}>
+                                                                <span key={docKey} title={`${doc.keterangan}`} className={`w-8 h-8 border text-[8px] font-extrabold flex items-center justify-center transition-all duration-150 ${statusColor} hover:scale-110 shadow-sm`}>
                                                                     {initials}
                                                                 </span>
                                                             );
@@ -211,7 +211,7 @@ export default function ValidasiBerkas() {
                                                 </td>
                                                 <td className="p-4 pr-6 text-right">{getStatusBadge(overallStatus)}</td>
                                                 <td className="p-4 text-right">
-                                                    <button onClick={() => navigate(`/validasi-berkas/proses/${a.id}`)} className="px-3 py-1 bg-brand text-white text-sm rounded transition-colors inline-flex">Periksa</button>
+                                                    <button onClick={() => navigate(`/validasi-berkas/proses/${a.id}`)} className="px-3 py-1 bg-slate-500 text-white text-sm transition-colors inline-flex">Periksa</button>
                                                 </td>
                                             </tr>
                                         );

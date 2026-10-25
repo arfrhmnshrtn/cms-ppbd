@@ -13,19 +13,19 @@ export default function Sidebar({ isOpen }) {
 
   return (
     <aside
-      className={`glass sticky top-0 h-screen flex flex-col py-6 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] z-20 overflow-x-hidden ${isOpen ? 'w-[290px] px-6' : 'w-[85px] px-3'
+      className={`sticky top-0 h-screen flex flex-col py-6 bg-gray-800 border-r border-gray-700 shadow-lg transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] z-20 overflow-x-hidden ${isOpen ? 'w-[295px]' : 'w-[120px] px-3'
         }`}
     >
-      <div className={`flex items-center text-brand font-bold mb-8 ${isOpen ? 'gap-3 text-2xl' : 'justify-center text-xl'}`}>
-        <span><img src={logo} width={40} height={60} alt="logo" /></span>
-        <span className={`whitespace-nowrap text-xl font-bold ${isOpen ? 'block' : 'hidden'}`}>PORTAL SPMB</span>
+      <div className={`flex items-center text-white font-bold mb-8 ${isOpen ? 'gap-3 text-2xl px-6' : 'justify-center text-xl'}`}>
+        <span><img src={logo} width={50} height={80} alt="logo" /></span>
+        <span className={`whitespace-nowrap text-xl font-bold ${isOpen ? 'block' : 'hidden'}`}>PORTAL PPDB</span>
       </div>
 
-      <nav className="flex flex-col gap-2">
+      <nav className="flex flex-col">
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${isActive ? 'bg-brand text-white shadow-sm' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+            `flex items-center text-base gap-3 px-6 py-3 font-medium transition-colors border-b border-slate-500 hover:text-white ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-slate-50'
             } ${!isOpen && 'justify-center'}`
           }
         >
@@ -35,7 +35,7 @@ export default function Sidebar({ isOpen }) {
 
         <div>
           <button
-            className={`w-full flex items-center px-4 py-3 rounded-lg font-medium transition-colors text-slate-500 hover:bg-slate-50 hover:text-slate-900 ${!isOpen ? 'justify-center' : 'justify-between'
+            className={`w-full mt-2 flex items-center px-6 py-3 font-medium transition-colors border-b border-slate-500 text-slate-300 hover:text-white ${!isOpen ? 'justify-center' : 'justify-between'
               }`}
             onClick={() => setIsUsersOpen(!isUsersOpen)}
           >
@@ -55,7 +55,7 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/tkj"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand font-semibold' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -65,7 +65,7 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/tkr"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand font-semibold' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -75,7 +75,7 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/atp"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand font-semibold' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -85,7 +85,7 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/ak"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand font-semibold' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -95,7 +95,7 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/dkv"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand font-semibold' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -109,7 +109,7 @@ export default function Sidebar({ isOpen }) {
         <NavLink
           to="/validasi-berkas"
           className={({ isActive }) =>
-            `flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${isActive ? 'bg-brand text-white shadow-sm' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+            `flex items-center text-base gap-3 px-6 py-3 font-medium transition-colors border-b border-slate-500 hover:text-white ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
             } ${!isOpen && 'justify-center'}`
           }
         >
@@ -119,7 +119,7 @@ export default function Sidebar({ isOpen }) {
 
         <div>
           <button
-            className={`w-full flex items-center px-4 py-3 rounded-lg font-medium transition-colors text-slate-500 hover:bg-slate-50 hover:text-slate-900 ${!isOpen ? 'justify-center' : 'justify-between'
+            className={`mt-2 w-full flex items-center text-base px-6 py-3 font-medium transition-colors border-b border-slate-500 text-slate-300 hover:text-white ${!isOpen ? 'justify-center' : 'justify-between'
               }`}
             onClick={() => setIsRaporOpen(!isRaporOpen)}
           >
@@ -139,9 +139,9 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/rapor-score?status=sudah"
                 className={
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${location.pathname === '/rapor-score' && location.search === '?status=sudah'
-                    ? 'text-brand font-semibold'
-                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${location.pathname === '/rapor-score' && location.search === '?status=sudah'
+                    ? 'bg-slate-900 text-white font-semibold'
+                    : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -151,9 +151,9 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/rapor-score?status=belum"
                 className={
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${location.pathname === '/rapor-score' && location.search === '?status=belum'
-                    ? 'text-brand font-semibold'
-                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${location.pathname === '/rapor-score' && location.search === '?status=belum'
+                    ? 'bg-slate-900 text-white font-semibold'
+                    : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -166,7 +166,7 @@ export default function Sidebar({ isOpen }) {
 
         <div>
           <button
-            className={`w-full flex items-center px-4 py-3 rounded-lg font-medium transition-colors text-slate-500 hover:bg-slate-50 hover:text-slate-900 ${!isOpen ? 'justify-center' : 'justify-between'
+            className={`mt-2 w-full flex items-center text-base px-6 py-3 font-medium transition-colors border-b border-slate-500 text-slate-300 hover:text-white ${!isOpen ? 'justify-center' : 'justify-between'
               }`}
             onClick={() => setIsNilaiUjianOpen(!isNilaiUjianOpen)}
           >
@@ -186,9 +186,9 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/nilai-ujian?status=sudah"
                 className={
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${location.pathname === '/nilai-ujian' && location.search === '?status=sudah'
-                    ? 'text-brand font-semibold'
-                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${location.pathname === '/nilai-ujian' && location.search === '?status=sudah'
+                    ? 'bg-slate-900 text-white font-semibold'
+                    : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -198,9 +198,9 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/nilai-ujian?status=belum"
                 className={
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${location.pathname === '/nilai-ujian' && location.search === '?status=belum'
-                    ? 'text-brand font-semibold'
-                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${location.pathname === '/nilai-ujian' && location.search === '?status=belum'
+                    ? 'bg-slate-900 text-white font-semibold'
+                    : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -213,13 +213,13 @@ export default function Sidebar({ isOpen }) {
 
         <div>
           <button
-            className={`w-full flex items-center px-4 py-3 rounded-lg font-medium transition-colors text-slate-500 hover:bg-slate-50 hover:text-slate-900 ${!isOpen ? 'justify-center' : 'justify-between'
+            className={`mt-2 w-full flex items-center text-base px-6 py-3 font-medium transition-colors border-b border-slate-500 text-slate-300 hover:text-white ${!isOpen ? 'justify-center' : 'justify-between'
               }`}
             onClick={() => setIsPengaturanJadwalOpen(!isPengaturanJadwalOpen)}
           >
             <div className="flex items-center gap-3 overflow-hidden">
               <Clock size={20} className="flex-shrink-0" />
-              <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Pengaturan Jadwal</span>
+              <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Jadwal</span>
             </div>
             {isOpen && (
               <div className="flex-shrink-0">
@@ -233,7 +233,7 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/jadwal-ujian"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand font-semibold' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -243,7 +243,7 @@ export default function Sidebar({ isOpen }) {
               <NavLink
                 to="/jadwal-kelulusan"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand font-semibold' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  `flex items-center gap-3 p-2 text-sm font-medium transition-colors border-b border-slate-500 ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
                   } ${!isOpen && 'justify-center'}`
                 }
               >
@@ -258,18 +258,18 @@ export default function Sidebar({ isOpen }) {
         <NavLink
           to="/settings"
           className={({ isActive }) =>
-            `flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${isActive ? 'bg-brand text-white shadow-sm' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+            `mt-2 flex items-center text-base gap-3 px-6 py-3 font-medium transition-colors border-b border-slate-500 hover:text-white ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
             } ${!isOpen && 'justify-center'}`
           }
         >
           <Settings size={20} className="flex-shrink-0" />
-          <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Settings</span>
+          <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Pengaturan</span>
         </NavLink>
       </nav>
 
       <div className="mt-auto">
         <button
-          className={`w-full flex items-center px-4 py-3 rounded-lg bg-red-500 font-medium transition-colors text-white hover:bg-red-700 hover:text-white gap-3 ${!isOpen && 'justify-center'}`}
+          className={`w-full flex items-center px-6 py-3 rounded-none font-medium transition-colors text-red-500 hover:bg-red-700 hover:text-white gap-3 ${!isOpen && 'justify-center'}`}
           onClick={() => {
             localStorage.removeItem('tokenAdmin');
             navigate('/login');
