@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { LayoutDashboard, Users, Settings, LogOut, Code, ChevronDown, ChevronUp, Box, User, Shield, Calendar, FileText, BookOpen, Clock } from 'lucide-react';
+import Swal from 'sweetalert2';
 import logo from '../assets/logo.png';
 
 export default function Sidebar({ isOpen }) {
@@ -270,9 +271,22 @@ export default function Sidebar({ isOpen }) {
       <div className="mt-auto">
         <button
           className={`w-full flex items-center px-6 py-3 rounded-none font-medium transition-colors text-red-500 hover:bg-red-700 hover:text-white gap-3 ${!isOpen && 'justify-center'}`}
-          onClick={() => {
-            localStorage.removeItem('tokenAdmin');
-            navigate('/login');
+          onClick={async () => {
+            const result = await Swal.fire({
+              title: 'Konfirmasi Logout',
+              text: 'Apakah Anda yakin ingin keluar?',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#dc2626',
+              cancelButtonColor: '#64748b',
+              confirmButtonText: 'Ya, Logout',
+              cancelButtonText: 'Batal',
+            });
+
+            if (result.isConfirmed) {
+              localStorage.removeItem('tokenAdmin');
+              navigate('/login');
+            }
           }}
         >
           <LogOut size={20} className="flex-shrink-0" />

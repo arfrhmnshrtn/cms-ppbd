@@ -6,12 +6,6 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900 antialiased overflow-x-hidden;
     font-family: 'Nunito', sans-serif;
   }
-}
-
-/* Fallback base styles for clean transitions if needed */
-.glass {
-  @apply bg-white/80 backdrop-blur-md border border-slate-200 shadow-sm;
 }

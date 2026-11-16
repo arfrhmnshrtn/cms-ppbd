@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Code, GraduationCap } from 'lucide-react';
+import { Code, GraduationCap, Eye, EyeOff } from 'lucide-react';
+import Swal from 'sweetalert2';
 import logo from '../assets/logo.png';
 
 export default function Login() {
-  const [email, setEmail] = useState('admin1@gmail.com');
+  const [username, setUsername] = useState('adminsmk1sp');
   const [password, setPassword] = useState('12345678');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ export default function Login() {
           'Content-Type': 'application/json',
           'ngrok-skip-browser-warning': 'true',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, password }),
       });
 
       const data = await response.json();
@@ -35,12 +37,19 @@ export default function Login() {
         if (token) {
           localStorage.setItem('tokenAdmin', token);
           localStorage.setItem('name', 'admin');
+          await Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Login berhasil! Mengalihkan ke halaman dashboard...',
+            timer: 1500,
+            showConfirmButton: false,
+          });
           navigate('/');
         } else {
           setError('Token tidak ditemukan pada response server.');
         }
       } else {
-        setError(data.message || 'Login gagal. Periksa kembali email dan password!');
+        setError(data.message || 'Login gagal. Periksa kembali username dan password!');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -69,27 +78,37 @@ export default function Login() {
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="block mb-2 text-slate-900 font-medium text-sm">Email</label>
+            <label className="block mb-2 text-slate-900 font-medium text-sm">Username</label>
             <input
-              type="email"
+              type="text"
               required
               className="w-full p-3 border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all"
-              placeholder="admin@jelajah.in"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="adminsmk1sp"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
           <div>
             <label className="block mb-2 text-slate-900 font-medium text-sm">Password</label>
-            <input
-              type="password"
-              required
-              className="w-full p-3 border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                required
+                className="w-full p-3 pr-11 border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all"
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 focus:outline-none"
+                aria-label={showPassword ? 'Sembunyikan password' : 'Lihat password'}
+              >
+                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
 
           <button
