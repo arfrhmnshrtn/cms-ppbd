@@ -13,6 +13,7 @@ import ProsesValidasiBerkas from './pages/validasi_berkas/ProsesValidasiBerkas';
 import JadwalKelulusan from './pages/jadwal_kelulusan/JadwalKelulusan';
 import TambahJadwal from './pages/jadwal_kelulusan/TambahJadwal';
 import JadwalUjian from './pages/jadwal_ujian/JadwalUjian';
+import TambahJadwalUjian from './pages/jadwal_ujian/TambahJadwal';
 import NotFound from './pages/NotFound';
 
 // ProtectedRoute component to handle authentication state
@@ -65,6 +66,7 @@ function App() {
           <Route path="jadwal-kelulusan" element={<JadwalKelulusan />} />
           <Route path="jadwal-kelulusan/tambah" element={<TambahJadwal />} />
           <Route path="jadwal-ujian" element={<JadwalUjian />} />
+          <Route path="jadwal-ujian/tambah" element={<TambahJadwalUjian />} />
           <Route path="settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Route>

@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Loader2, Calendar } from "lucide-react";
 
 export default function JadwalUjian() {
-
+    const navigate = useNavigate();
     const [jadwal, setJadwal] = useState([]);
 
     const fetchJadwal = useCallback(async () => {
@@ -48,7 +49,7 @@ export default function JadwalUjian() {
                 <div className="flex items-center gap-3">
 
                     <button
-                        // onClick={() => navigate('/jadwal-ujian/tambah')}
+                        onClick={() => navigate('/jadwal-ujian/tambah')}
                         className="px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-600 font-medium hover:bg-slate-50 hover:border-slate-300 transition-all duration-200"
                     >
                         {/* {isScheduleSet ? 'Tambah Jadwal' : 'Ubah Jadwal +'} */}
