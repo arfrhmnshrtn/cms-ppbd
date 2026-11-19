@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, Loader2 } from 'lucide-react';
+import Swal from 'sweetalert2';
 
 export default function TambahJadwal() {
     const navigate = useNavigate();
@@ -15,6 +16,8 @@ export default function TambahJadwal() {
 
         try {
             const token = localStorage.getItem('tokenAdmin');
+            const publishedAt = new Date(date).toISOString();
+
             const response = await fetch(`${import.meta.env.VITE_API_URL}/announcements/schedule`, {
                 method: 'PATCH',
                 headers: {
@@ -22,18 +25,22 @@ export default function TambahJadwal() {
                     'Content-Type': 'application/json',
                     'ngrok-skip-browser-warning': 'true'
                 },
-                body: JSON.stringify({ published_at: date })
+                body: JSON.stringify({ published_at: publishedAt })
             });
 
-            if (response.ok) {
-                const resData = await response.json();
-                if (resData.success) {
-                    navigate('/jadwal-ujian');
-                } else {
-                    setError(resData.message || 'Gagal menyimpan jadwal.');
-                }
+            const resData = await response.json().catch(() => ({}));
+
+            if (response.ok && resData.success !== false) {
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil',
+                    text: resData.message || 'Jadwal pengumuman kelulusan berhasil disimpan!',
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+                navigate('/jadwal-kelulusan');
             } else {
-                setError('Terjadi kesalahan pada server saat menyimpan jadwal.');
+                setError(resData.message || 'Gagal menyimpan jadwal.');
             }
         } catch (err) {
             console.error('Error saving schedule:', err);
@@ -55,7 +62,7 @@ export default function TambahJadwal() {
                     </p>
                 </div>
                 <button
-                    onClick={() => navigate('/jadwal-ujian')}
+                    onClick={() => navigate('/jadwal-kelulusan')}
                     className="px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-600 font-medium hover:bg-slate-50 transition-all duration-200"
                 >
                     Kembali

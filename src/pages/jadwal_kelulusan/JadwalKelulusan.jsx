@@ -101,7 +101,7 @@ export default function JadwalKelulusan() {
                     </button>
 
                     <button
-                        onClick={() => navigate('/jadwal-ujian/tambah')}
+                        onClick={() => navigate('/jadwal-kelulusan/tambah')}
                         className="px-4 py-2.5 rounded-xl bg-blue-600 text-white font-medium shadow-sm hover:bg-blue-700 transition-all duration-200"
                     >
                         {isScheduleSet ? 'Tambah Jadwal' : 'Ubah Jadwal +'}
