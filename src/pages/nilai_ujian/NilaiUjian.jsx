@@ -406,7 +406,7 @@ export default function NilaiUjian() {
                     <select
                         value={selectedMajor}
                         onChange={(e) => setSelectedMajor(e.target.value)}
-                        className="bg-bg-soft border border-border px-4 py-2.5 rounded-xl w-full text-sm text-text-main outline-none focus:border-brand transition-all cursor-pointer"
+                        className="bg-bg-soft border border-border px-4 py-2.5 w-full text-sm text-text-main outline-none focus:border-brand transition-all cursor-pointer"
                     >
                         {majors.map((m) => (
                             <option key={m.id} value={m.id}>

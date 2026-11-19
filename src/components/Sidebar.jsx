@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Users, Settings, LogOut, Code, ChevronDown, ChevronUp, Box, User, Shield, Calendar, FileText, BookOpen, Clock } from 'lucide-react';
+import { LayoutDashboard, Users, Settings, LogOut, Code, ChevronDown, ChevronUp, Box, User, Shield, Calendar, FileText, BookOpen, Clock, ListCheck, GraduationCap } from 'lucide-react';
 import Swal from 'sweetalert2';
 import logo from '../assets/logo.png';
 
@@ -255,18 +255,33 @@ export default function Sidebar({ isOpen }) {
           )}
         </div>
 
-
-        <NavLink
-          to="/settings"
-          className={({ isActive }) =>
-            `mt-2 flex items-center text-base gap-3 px-6 py-3 font-medium transition-colors border-b border-slate-500 hover:text-white ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
-            } ${!isOpen && 'justify-center'}`
-          }
-        >
-          <Settings size={20} className="flex-shrink-0" />
-          <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Pengaturan</span>
-        </NavLink>
+        
       </nav>
+
+
+      <NavLink
+        to="/kuota-jurusan"
+        className={({ isActive }) =>
+          `mt-2 flex items-center text-base gap-3 px-6 py-3 font-medium transition-colors border-b border-slate-500 hover:text-white ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
+          } ${!isOpen && 'justify-center'}`
+        }
+      >
+        <Box size={20} className="flex-shrink-0" />
+        <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Kuota Jurusan</span>
+      </NavLink>
+
+      <NavLink
+        to="/settings"
+        className={({ isActive }) =>
+          `mt-2 flex items-center text-base gap-3 px-6 py-3 font-medium transition-colors border-b border-slate-500 hover:text-white ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
+          } ${!isOpen && 'justify-center'}`
+        }
+      >
+        <Settings size={20} className="flex-shrink-0" />
+        <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Pengaturan</span>
+      </NavLink>
+
+
 
       <div className="mt-auto">
         <button

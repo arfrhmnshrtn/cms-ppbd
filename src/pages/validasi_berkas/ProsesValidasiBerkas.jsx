@@ -238,7 +238,7 @@ export default function ProsesValidasiBerkas() {
             <div className="flex flex-col items-center justify-center h-full min-h-[400px]">
                 <AlertCircle className="w-12 h-12 text-rose-500 mb-4" />
                 <h2 className="text-xl font-bold text-text-main mb-2">Pendaftar Tidak Ditemukan</h2>
-                <button onClick={() => navigate('/validasi-berkas')} className="px-4 py-2 bg-brand text-white rounded-xl font-semibold">Kembali</button>
+                <button onClick={() => navigate('/validasi-berkas')} className="px-4 py-2 bg-brand text-white font-semibold">Kembali</button>
             </div>
         );
     }
@@ -249,7 +249,7 @@ export default function ProsesValidasiBerkas() {
             <div className="flex items-center gap-4 mb-6 flex-shrink-0">
                 <button
                     onClick={() => navigate(-1)}
-                    className="w-10 h-10 rounded-xl bg-bg-card border border-border flex items-center justify-center text-text-muted hover:bg-slate-100 hover:text-text-main transition-colors"
+                    className="w-10 h-10 bg-bg-card border border-border flex items-center justify-center text-text-muted hover:bg-slate-100 hover:text-text-main transition-colors"
                 >
                     <ChevronLeft size={20} />
                 </button>
@@ -265,7 +265,7 @@ export default function ProsesValidasiBerkas() {
 
             <div className="flex flex-1 gap-6 min-h-0">
                 {/* Left Pane - Document Viewer */}
-                <div className="flex-1 flex flex-col bg-bg-card rounded-[24px] border border-border overflow-hidden shadow-sm">
+                <div className="flex-1 flex flex-col bg-bg-card border border-border overflow-hidden shadow-sm">
                     {/* Document Selector Tabs */}
                     <div className="px-4 py-3 border-b border-border bg-slate-50 flex overflow-x-auto gap-2 no-scrollbar">
                         {docMap.map(d => {
@@ -275,7 +275,7 @@ export default function ProsesValidasiBerkas() {
                                 <button
                                     key={d.key}
                                     onClick={() => setActiveDocKey(d.key)}
-                                    className={`px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition-all flex items-center gap-2
+                                    className={`px-4 py-2 text-sm font-semibold whitespace-nowrap transition-all flex items-center gap-2
                                         ${isActive
                                             ? 'bg-brand text-white shadow-md'
                                             : hasDoc
@@ -285,7 +285,7 @@ export default function ProsesValidasiBerkas() {
                                 >
                                     {d.label}
                                     {hasDoc && (
-                                        <span className={`w-2 h-2 rounded-full ${validationStatuses[d.key] === 'APPROVED' ? 'bg-emerald-400' :
+                                        <span className={`w-2 h-2 ${validationStatuses[d.key] === 'APPROVED' ? 'bg-emerald-400' :
                                             validationStatuses[d.key] === 'REVISI' ? 'bg-amber-400' :
                                                 validationStatuses[d.key] === 'REJECTED' ? 'bg-rose-400' : 'bg-slate-300'
                                             }`}></span>
@@ -298,7 +298,7 @@ export default function ProsesValidasiBerkas() {
                     {/* Viewer Area */}
                     <div className="flex-1 p-4 bg-slate-100/60 overflow-hidden relative flex flex-col">
                         {activeDocument?.path ? (
-                            <div className="flex-1 bg-white border border-border rounded-xl shadow-lg p-2 relative flex flex-col overflow-auto items-center justify-start">
+                            <div className="flex-1 bg-white border border-border shadow-lg p-2 relative flex flex-col overflow-auto items-center justify-start">
                                 <Document
                                     file={getFileUrl(activeDocument.path)}
                                     onLoadSuccess={onDocumentLoadSuccess}
@@ -306,30 +306,30 @@ export default function ProsesValidasiBerkas() {
                                     error={<div className="p-10 text-rose-500 font-semibold flex items-center gap-2"><AlertCircle /> Gagal memuat file PDF. Mungkin format file bukan PDF atau URL tidak valid.</div>}
                                     className="flex flex-col items-center w-full"
                                 >
-                                    <Page 
-                                        pageNumber={pageNumber} 
+                                    <Page
+                                        pageNumber={pageNumber}
                                         width={1000} // Render large for clarity, CSS will scale it down
-                                        renderTextLayer={false} 
-                                        renderAnnotationLayer={false} 
+                                        renderTextLayer={false}
+                                        renderAnnotationLayer={false}
                                         className="[&>canvas]:!w-auto [&>canvas]:!max-w-full [&>canvas]:!h-auto [&>canvas]:!max-h-[calc(100vh-280px)] [&>canvas]:object-contain shadow-sm border border-slate-200"
                                     />
                                 </Document>
                                 {numPages > 1 && (
-                                    <div className="sticky bottom-4 mt-4 flex items-center gap-4 bg-white/90 backdrop-blur px-5 py-2.5 rounded-full shadow-lg border border-border">
-                                        <button 
-                                            disabled={pageNumber <= 1} 
+                                    <div className="sticky bottom-4 mt-4 flex items-center gap-4 bg-white/90 backdrop-blur px-5 py-2.5 shadow-lg border border-border">
+                                        <button
+                                            disabled={pageNumber <= 1}
                                             onClick={() => setPageNumber(p => p - 1)}
-                                            className="p-1 px-3 rounded hover:bg-slate-100 disabled:opacity-50 font-bold transition-colors"
+                                            className="p-1 px-3 hover:bg-slate-100 disabled:opacity-50 font-bold transition-colors"
                                         >
                                             Prev
                                         </button>
                                         <span className="text-sm font-semibold text-text-main">
                                             {pageNumber} / {numPages}
                                         </span>
-                                        <button 
-                                            disabled={pageNumber >= numPages} 
+                                        <button
+                                            disabled={pageNumber >= numPages}
                                             onClick={() => setPageNumber(p => p + 1)}
-                                            className="p-1 px-3 rounded hover:bg-slate-100 disabled:opacity-50 font-bold transition-colors"
+                                            className="p-1 px-3 hover:bg-slate-100 disabled:opacity-50 font-bold transition-colors"
                                         >
                                             Next
                                         </button>
@@ -349,20 +349,20 @@ export default function ProsesValidasiBerkas() {
                 </div>
 
                 {/* Right Pane - Form Input */}
-                <div className="w-[400px] flex flex-col bg-bg-card rounded-[24px] border border-border overflow-y-auto shadow-sm p-6">
+                <div className="w-[400px] flex flex-col bg-bg-card border border-border overflow-y-auto shadow-sm p-6">
                     <h3 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-4 border-b border-border pb-2">Status Validasi Dokumen</h3>
 
                     <div className="mb-6">
                         <p className="text-sm font-bold text-text-main mb-1">{docMap.find(d => d.key === activeDocKey)?.label}</p>
                         {activeDocument ? (
-                            <p className="text-xs text-text-muted break-all bg-slate-50 p-2 rounded border border-border">{activeDocument.keterangan || 'Tidak ada catatan tambahan dari siswa.'}</p>
+                            <p className="text-xs text-text-muted break-all bg-slate-50 p-2 border border-border">{activeDocument.keterangan || 'Tidak ada catatan tambahan dari siswa.'}</p>
                         ) : (
-                            <p className="text-xs text-amber-500 font-semibold bg-amber-50 p-2 rounded border border-amber-100">Belum diunggah</p>
+                            <p className="text-xs text-amber-500 font-semibold bg-amber-50 p-2 border border-amber-100">Belum diunggah</p>
                         )}
                     </div>
 
                     <div className="space-y-3 flex-1">
-                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${validationStatuses[activeDocKey] === 'APPROVED' ? 'border-emerald-500 bg-emerald-50/50' : 'border-border hover:border-emerald-200 hover:bg-slate-50'}`}>
+                        <label className={`flex items-center gap-3 p-4 border-2 cursor-pointer transition-all ${validationStatuses[activeDocKey] === 'APPROVED' ? 'border-emerald-500 bg-emerald-50/50' : 'border-border hover:border-emerald-200 hover:bg-slate-50'}`}>
                             <input
                                 type="radio"
                                 name="status"
@@ -378,7 +378,7 @@ export default function ProsesValidasiBerkas() {
                             </div>
                         </label>
 
-                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${validationStatuses[activeDocKey] === 'REVISI' ? 'border-amber-500 bg-amber-50/50' : 'border-border hover:border-amber-200 hover:bg-slate-50'}`}>
+                        <label className={`flex items-center gap-3 p-4 border-2 cursor-pointer transition-all ${validationStatuses[activeDocKey] === 'REVISI' ? 'border-amber-500 bg-amber-50/50' : 'border-border hover:border-amber-200 hover:bg-slate-50'}`}>
                             <input
                                 type="radio"
                                 name="status"
@@ -394,7 +394,7 @@ export default function ProsesValidasiBerkas() {
                             </div>
                         </label>
 
-                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${validationStatuses[activeDocKey] === 'REJECTED' ? 'border-rose-500 bg-rose-50/50' : 'border-border hover:border-rose-200 hover:bg-slate-50'}`}>
+                        <label className={`flex items-center gap-3 p-4 border-2 cursor-pointer transition-all ${validationStatuses[activeDocKey] === 'REJECTED' ? 'border-rose-500 bg-rose-50/50' : 'border-border hover:border-rose-200 hover:bg-slate-50'}`}>
                             <input
                                 type="radio"
                                 name="status"
@@ -411,10 +411,10 @@ export default function ProsesValidasiBerkas() {
                         </label>
 
                         {(validationStatuses[activeDocKey] === 'REVISI' || validationStatuses[activeDocKey] === 'REJECTED') && (
-                            <div className="mt-4 p-4 bg-slate-50 border border-slate-200 rounded-xl animate-in slide-in-from-top-2 fade-in duration-200">
+                            <div className="mt-4 p-4 bg-slate-50 border border-slate-200 animate-in slide-in-from-top-2 fade-in duration-200">
                                 <label className="block text-sm font-bold text-text-main mb-2">Keterangan / Alasan {validationStatuses[activeDocKey] === 'REVISI' ? 'Revisi' : 'Penolakan'}</label>
-                                <textarea 
-                                    className="w-full bg-white border border-border rounded-lg p-3 text-sm text-text-main outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all resize-none h-24"
+                                <textarea
+                                    className="w-full bg-white border border-border p-3 text-sm text-text-main outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all resize-none h-24"
                                     placeholder={`Tuliskan alasan mengapa dokumen ini ${validationStatuses[activeDocKey] === 'REVISI' ? 'perlu direvisi' : 'ditolak'}...`}
                                     value={validationKeterangans[activeDocKey] || ''}
                                     onChange={handleKeteranganChange}
@@ -424,19 +424,11 @@ export default function ProsesValidasiBerkas() {
                     </div>
 
                     <div className="mt-8 pt-6 border-t border-border flex flex-col gap-3">
-                        <button
-                            onClick={handleSaveSingle}
-                            disabled={submitting || !activeDocument?.id}
-                            className="w-full py-3 px-4 bg-brand text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand/90 transition-all shadow-sm shadow-brand/20 disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            {submitting ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
-                            Simpan Dokumen Ini
-                        </button>
 
                         <button
                             onClick={handleSaveAll}
                             disabled={submitting}
-                            className="w-full py-3 px-4 bg-slate-800 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-700 transition-all shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full py-3 px-4 bg-slate-800 text-white font-bold flex items-center justify-center gap-2 hover:bg-slate-700 transition-all shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             Simpan Semua Perubahan
                         </button>
