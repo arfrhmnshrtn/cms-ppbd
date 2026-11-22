@@ -206,7 +206,7 @@ export default function KuotaJurusan() {
                                     Input Kuota Jurusan
                                 </h2>
                                 <p className="text-xs text-text-muted">
-                                    Pilih jurusan dari daftar database lalu masukkan jumlah kuota.
+                                    Pilih jurusan lalu masukkan jumlah kuota.
                                 </p>
                             </div>
                         </div>

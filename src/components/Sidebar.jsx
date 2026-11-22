@@ -271,6 +271,17 @@ export default function Sidebar({ isOpen }) {
       </NavLink>
 
       <NavLink
+        to="/seleksi-penerimaan"
+        className={({ isActive }) =>
+          `mt-2 flex items-center text-base gap-3 px-6 py-3 font-medium transition-colors border-b border-slate-500 hover:text-white ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
+          } ${!isOpen && 'justify-center'}`
+        }
+      >
+        <Shield size={20} className="flex-shrink-0" />
+        <span className={`whitespace-nowrap ${isOpen ? 'block' : 'hidden'}`}>Seleksi Penerimaan</span>
+      </NavLink>
+
+      <NavLink
         to="/settings"
         className={({ isActive }) =>
           `mt-2 flex items-center text-base gap-3 px-6 py-3 font-medium transition-colors border-b border-slate-500 hover:text-white ${isActive ? 'bg-slate-900 text-white font-semibold' : 'text-slate-300 hover:text-white'
